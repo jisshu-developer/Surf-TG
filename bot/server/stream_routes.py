@@ -42,7 +42,7 @@ async def login_route(request):
     username = data.get('username')
     password = data.get('password')
     error_message = None
-    if (username == Telegram.USERNAME and password == Telegram.PASSWORD) or (username == Telegram.ADMIN_USERNAME and password == Telegram.ADMIN_PASSWORD):
+    if (username == Telegram.USERNAME and password == Telegram.PASSWORD) or (username == Telegram.ADMIN_USERNAME and password == Telegramm.ADMIN_PASSWORD):
         session['user'] = username
         if 'redirect_url' not in session:
             session['redirect_url'] = '/'
