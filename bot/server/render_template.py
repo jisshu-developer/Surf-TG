@@ -4,6 +4,7 @@ from os import path as ospath
 
 from bot import LOGGER
 from bot.config import Telegram
+from bot.jisshu import Telegramm
 from bot.helper.database import Database
 from bot.helper.exceptions import InvalidHash
 from bot.helper.file_size import get_readable_file_size
@@ -30,7 +31,7 @@ hide_channel = """
 async def render_page(id, secure_hash, is_admin=False, html='', playlist='', database='', route='', redirect_url='', msg='', chat_id=''):
     theme = await db.get_variable('theme')
     if theme is None or theme == '':
-        theme = Telegram.THEME
+        theme = Telegramm.THEME
     tpath = ospath.join('bot', 'server', 'template')
     if route == 'login':
         async with aiopen(ospath.join(tpath, 'login.html'), 'r') as f:
