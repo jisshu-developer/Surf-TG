@@ -1,14 +1,14 @@
 from asyncio import gather, create_task
 from bot.helper.database import Database
 from bot.telegram import StreamBot
-from bot.config import Telegram
+from bot.jisshu import Telegramm
 
 db = Database()
 
 async def get_chats():
     AUTH_CHANNEL = await db.get_variable('auth_channel')
     if AUTH_CHANNEL is None or AUTH_CHANNEL.strip() == '':
-        AUTH_CHANNEL = Telegram.AUTH_CHANNEL
+        AUTH_CHANNEL = Telegramm.AUTH_CHANNEL
     else:
         AUTH_CHANNEL = [channel.strip() for channel in AUTH_CHANNEL.split(",")]
     
